@@ -20,7 +20,7 @@ const nonceSize = 24
 // If a key is not provided, “qwerty” will be used
 var userKey = flag.String("k", "qwerty", "encryption key")
 
-// The key should be 32 bytes. If the provided key is less than that,
+// NaCl's key must be 32 bytes. If the provided key is less than that,
 // we will pad it with the appropriate number of bytes from pad.
 // pad should be the same for encrypter and decrypter
 var pad = []byte("«super jumpy fox jumps all over»")
@@ -49,7 +49,7 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	// Read the nonce from in, it is the first 24 bytes
+	// Read the nonce from in, it is in the first 24 bytes
 	copy(nonce[:], in[:nonceSize])
 
 	// Decrypt the output of secretbox.Seal which contains the nonce and
