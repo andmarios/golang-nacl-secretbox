@@ -1,5 +1,5 @@
 /*
-   encrypt.go encrypts a string using secret key NaCl
+   encrypt.go encrypts a message using secret key NaCl
    and a user provided key (default key: qwerty).
    Then it writes the result to encrypted.dat
 */
